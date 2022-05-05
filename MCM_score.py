@@ -10,12 +10,12 @@ while True:
     response = requests.get(url)
     if response.status_code == 200:
         if abs(int(test_num) - int(team_num)) >= 10:  # 以10为步长测试目前出到几号成绩了
-            print("No.", test_num, "score has been published!")
+            print("No.", test_num, "score is available!")
             test_num = str(int(test_num)+10)
         else:  # 如果离自己队伍号小于10了就开始蹲自己的
             test_num = team_num
         if test_num == team_num:
-            print("you team: ", team_num, "score has been published!")
+            print("your team: ", team_num, "score  is available!")
             with open(team_num+".pdf", 'wb') as f:
                 f.write(response.content)  # 下载到本地
             break
